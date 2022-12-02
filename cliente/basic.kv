@@ -1,0 +1,36 @@
+#:kivy 1.11.1
+<MyWidget>:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        TextInput::
+            id: Ip
+            text: 'porta'
+        TextInput::
+            id: Porta
+            text: 'porta'
+        Button:
+            id: conectar
+            text:'Conectar'    
+    TextInput:
+        id: txtinput
+    Label:
+        id: leitura
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text:'Holding Register'
+            on_release: 
+        Button:
+            text: 'Coil'
+            on_release: 
+        Button:
+            text: 'Input Register'
+            on_release: 
+        Button:
+            text: 'Discrete Register'
+            on_release: 
+    CheckBox:
+        id: checkbox
+        Active: 
+        on_release: 
