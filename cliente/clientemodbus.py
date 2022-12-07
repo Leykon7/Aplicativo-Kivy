@@ -51,25 +51,7 @@ class ClienteMODBUS():
                     print("Seleção inválida")
         except Exception as e:
             print('Erro no atendimento: ',e.args)
-
-class MyWidget(BoxLayout):
-
-    def lerDado(self, tipo, addr):
-        """
-        Método para leitura de um dado da Tabela MODBUS
-        """
-        if tipo == 1:
-            return self._cliente.read_holding_registers(addr,1)[0]
-
-        if tipo == 2:
-            return self._cliente.read_coils(addr,1)[0]
-
-        if tipo == 1:
-            return self._cliente.read_input_registers(addr,1)[0]
-
-        if tipo == 1:
-            return self._cliente.read_discrete_inputs(addr,1)[0]
-
+    
     def escreveDado(self, tipo, addr, valor):
         """
         Método para a escrita de dados na Tabela MODBUS
@@ -80,6 +62,51 @@ class MyWidget(BoxLayout):
         if tipo == 2:
             return self._cliente.write_single_coil(addr,valor)
 
+class MyWidget(BoxLayout):
+
+    def endIp(self):
+        return self.root.ids.Ip.text
+    
+    def porta(self):
+        return self.root.ids.Porta.text
+
+    def lerDado(self, tipo):
+        """
+        Método para leitura de um dado da Tabela MODBUS
+        """
+        while self.checkbox:
+            if tipo == 1:
+                addr = self.ids.address.text
+                return self._cliente.read_holding_registers(int(addr),1)[0]
+
+            if tipo == 2:
+                addr = self.ids.address.text
+                return self._cliente.read_coils(int(addr),1)[0]
+
+            if tipo == 1:
+                addr = self.ids.address.text
+                return self._cliente.read_input_registers(int(addr),1)[0]
+
+            if tipo == 1:
+                addr = self.ids.address.text
+                return self._cliente.read_discrete_inputs(int(addr),1)[0]
+
+
+    def checkbox(self, value):
+        if value is True:
+            return value
+        else:
+            return value
+
+    # def endereco(self):
+    #     return self.root.ids.address.text
+
 class Aplicativo(MyWidget):
     def build(self):
         return MyWidget()
+
+if __name__ == '__main__':
+    Window.size = (800,600)
+    Window.fullscreen = False
+    Aplicativo().run()
+
