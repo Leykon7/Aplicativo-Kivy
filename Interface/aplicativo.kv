@@ -1,0 +1,64 @@
+#:kivy 1.11.1
+<MyWidget>:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Endereço IP:'
+            TextInput:
+                id: Ip
+                text: 'localhost'
+                #on_enter: root.endIp(self)
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: 'Porta:'
+            TextInput:
+                id: Porta
+                text: '502'
+                #on_enter: root.porta(self)
+        Button:
+            id: conectar
+            text:'Conectar'
+            on_release: root.conectar()   
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Endereço:' 
+        TextInput:
+            id: address
+            # on_enter: root.endereco()
+            #size_hint: (x,y)
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Leitura:'
+        Label:
+            id: leitura
+            #text: root.lerDado()
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text:'Holding Register'
+            on_release: root.lerDado(1)
+        Button:
+            text: 'Coil'
+            on_release: root.lerDado(2)
+        Button:
+            text: 'Input Register'
+            on_release: root.lerDado(3)
+        Button:
+            text: 'Discrete Register'
+            on_release: root.lerDado(4)
+    BoxLayout:
+        orientation: 'horizontal'
+        Label:
+            text: 'Repetir a leitura:'
+        CheckBox:
+            id: repetir
+            
+    
+    
