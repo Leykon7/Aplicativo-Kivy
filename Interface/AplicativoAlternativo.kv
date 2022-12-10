@@ -1,0 +1,87 @@
+#:kivy 1.11.1
+<MyWidget>:
+    orientation: 'horizontal'
+    Label:
+        size_hint_x: 0.15
+    BoxLayout:
+        orientation:'vertical'
+        Label:
+        BoxLayout:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'Endereço IP:'
+                TextInput:
+                    id: Ip
+                    text: 'localhost'
+                    #on_enter: root.endIp(self)
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'Porta:'
+                TextInput:
+                    id: Porta
+                    text: '502'
+                    #on_enter: root.porta(self)
+            Button:
+                id: conectar
+                text:'Conectar'
+                on_release: root.conectar() 
+        Label:
+            text: ''    
+        BoxLayout:
+            orientation:'vertical'          
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                Label:
+                    text: 'Leitura:'
+                Label:
+                    id: foi_lido
+                    text: 'Conecte-se a um servidor'
+                Label:
+            Label:
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    id: repetir
+                    text: 'Leitura contínua:'
+                    halign: 'right'
+                CheckBox:
+                    id: repetir
+                    #size_hint_x: 0.4
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Label:
+                        text: 'Endereço:     '
+                        halign: 'right'
+                    TextInput:
+                        id: address
+                Label:
+        Label:
+            size_hint_y: 0.25
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                text:'Holding Register'
+                on_release: root.botoes(1)
+            Button:
+                text: 'Coil'
+                on_release: root.botoes(2)
+            Button:
+                text: 'Input Register'
+                on_release: root.botoes(3)
+            Button:
+                text: 'Discrete Register'
+                on_release: root.botoes(4)
+        Label:
+    Label:
+        size_hint_x: 0.15
+        
+        
+        
+    
+    
+    
